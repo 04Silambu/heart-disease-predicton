@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heart Disease Prediction</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>❤️ Heart Disease Prediction</h1>
+      <p class="subtitle">Data-driven prediction using Heart_Disease_Prediction.csv. Runs entirely in your browser.</p>
+
+      <form id="predict-form" class="grid">
+        <div class="field">
+          <label for="age">Age</label>
+          <input id="age" name="age" type="number" min="1" max="120" placeholder="e.g., 54" required />
+        </div>
+
+        <div class="field">
+          <label for="sex">Sex</label>
+          <select id="sex" name="sex">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="cp">Chest Pain Type</label>
+          <select id="cp" name="cp">
+            <option value="typical">Typical Angina</option>
+            <option value="atypical">Atypical Angina</option>
+            <option value="non-anginal">Non-anginal Pain</option>
+            <option value="asymptomatic">Asymptomatic</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="trestbps">Resting Blood Pressure (mm Hg)</label>
+          <input id="trestbps" name="trestbps" type="number" min="60" max="250" placeholder="e.g., 130" required />
+        </div>
+
+        <div class="field">
+          <label for="chol">Cholesterol (mg/dl)</label>
+          <input id="chol" name="chol" type="number" min="100" max="700" placeholder="e.g., 246" required />
+        </div>
+
+        <div class="field">
+          <label for="fbs">Fasting Blood Sugar > 120 mg/dl</label>
+          <select id="fbs" name="fbs">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="thalach">Max Heart Rate Achieved</label>
+          <input id="thalach" name="thalach" type="number" min="60" max="230" placeholder="e.g., 150" required />
+        </div>
+
+        <div class="field">
+          <label for="exang">Exercise Induced Angina</label>
+          <select id="exang" name="exang">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+          </select>
+        </div>
+
+        <div class="actions">
+          <button id="predict-btn" type="submit">Predict</button>
+        </div>
+      </form>
+
+      <div id="result" class="result" aria-live="polite"></div>
+
+      <details class="uploader">
+        <summary>Optional: Upload heart.csv to compute dataset averages</summary>
+        <div class="upload-row">
+          <input id="csvFile" type="file" accept=".csv" />
+          <button id="analyze-btn" type="button">Analyze CSV</button>
+        </div>
+        <div id="stats" class="stats"></div>
+      </details>
+
+      <p class="note">This demo uses statistical analysis of 270 patient records. Not medical advice.</p>
+    </section>
+
+    <footer class="footer">Built for demo purposes — no backend, all local.</footer>
+  </main>
+
+  <!-- PapaParse (local copy) - Load before script.js -->
+  <script src="vendor/papaparse.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
